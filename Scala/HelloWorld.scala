@@ -2,9 +2,9 @@ object HelloWorld{
       def main(args: Array[String]){
         if(args.size == 0) {
           val strs = Array("Hello", "World")
-              output(strs)
+          output(strs)
         } else {
-              printf("Invalid args.")
+          printf("Invalid args.")
         }
       }
 
@@ -13,4 +13,4 @@ object HelloWorld{
           printf("%s ", str)
         }
       }
-    }
+}
