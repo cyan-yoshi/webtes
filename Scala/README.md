@@ -6,3 +6,4 @@
 
 * _クロージャ_: 自由変数を持つ関数
 
+* _参考URL_: https://qiita.com/f81@github/items/369d3ad97112b20d9bc5
