@@ -16,4 +16,7 @@ func init() {
 func main() {
 	flag.Parse()
 	fmt.Println(strings.Repeat(*msg, n))
+
+	fmt.Println()
+	fmt.Println(flag.Args())
 }
