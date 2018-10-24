@@ -24,5 +24,5 @@ func main() {
 	var x1 = 123
 	var y1 = 431
 	x1, y1 = swap2(x1, y1)
-	println(y1)
+	println(x1)
 }
