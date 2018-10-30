@@ -14,7 +14,6 @@ func input(r io.Reader) <-chan string {
 		fmt.Println(s)
 		for s.Scan() {
 			chanel <- s.Text()
-			<-chanel
 		}
 		close(chanel)
 	}()
