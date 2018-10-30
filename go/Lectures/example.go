@@ -1,7 +1,7 @@
-package mypkg_test
+package mypkg
 
 import (
-	"testing"
+	"fmt"
 )
 
 type Hex int
