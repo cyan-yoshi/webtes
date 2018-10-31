@@ -9,15 +9,30 @@ import (
 	"time"
 )
 
+/*
+* input の return が <-chan string な理由
+
+呼び出し元の main go ルーチンはメッセージを受信したいから input のリターンが受信用となっている
+
+input の中の新しく作られた go ルーチンはチャネルに送信している (chn <- s.Text())
+= main go ルーチンにデータを送信している
+
+*/
+
 func input(r io.Reader) <-chan string {
 	chn := make(chan string)
+	fmt.Println("Start Input")
 	go func() {
+		fmt.Println("Start Go Func")
 		s := bufio.NewScanner(r)
 		for s.Scan() {
+			fmt.Println("Now For sentence")
 			chn <- s.Text()
 		}
+		fmt.Println("End Go Func")
 		close(chn)
 	}()
+	fmt.Println("End Input")
 	return chn
 }
 
@@ -36,9 +51,9 @@ func createliteral(n int) string {
 
 func main() {
 	fmt.Println("Let's Start Typing Game")
-	fmt.Println("Time Limit is 90 seconds")
+	//fmt.Println("Time Limit is 90 seconds")
 	ch := input(os.Stdin)
-	limit := time.After(90 * time.Second)
+	limit := time.After(10 * time.Second)
 	truecount := 0
 	falsecount := 0
 	for {
@@ -62,6 +77,5 @@ func main() {
 			fmt.Println(falsecount + truecount)
 			return
 		}
-
 	}
 }
