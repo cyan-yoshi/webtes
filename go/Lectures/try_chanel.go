@@ -11,7 +11,7 @@ func input(r io.Reader) <-chan string {
 	chanel := make(chan string)
 	go func() {
 		s := bufio.NewScanner(r)
-		fmt.Println(s)
+		//fmt.Println(s)
 		for s.Scan() {
 			chanel <- s.Text()
 		}
